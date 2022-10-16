@@ -37,6 +37,7 @@ public interface MainValues {
         List<TextChannel> returnList = new ArrayList<>();
 
         //returnList.add(MainTemplate.jda.getGuildById(GUILID).getTextChannelById(CHANNELID));
+        returnList.add(MainTemplate.jda.getGuildById(1007268691689341030L).getTextChannelById(1008306910665130065L));
 
         return returnList;
 
