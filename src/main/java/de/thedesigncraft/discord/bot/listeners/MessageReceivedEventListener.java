@@ -13,6 +13,9 @@ public class MessageReceivedEventListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
 
+        if (!event.isFromGuild())
+            return;
+
         if (event.getAuthor().equals(MainTemplate.jda.getSelfUser()))
             return;
 
