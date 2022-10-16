@@ -15,6 +15,7 @@ public interface UpdateFunctions {
 
         // returnList.add(new String[]{Versions.versions().get("VERSION_NAME"), "FUNCTION_NAME", "FUNCTION_DESCRIPTION"});
         returnList.add(new String[]{Versions.versions().get("v100a1"), "LevelSystem", "Das grundlegende System des Bots."});
+        returnList.add(new String[]{Versions.versions().get("v100a1"), "BotBio", "Erste Version der Bio."});
 
         return returnList;
 

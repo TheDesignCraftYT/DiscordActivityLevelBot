@@ -26,7 +26,7 @@ public interface MainValues {
     }
 
     @NotNull
-    TextChannel githubLog = MainTemplate.jda.getGuilds().get(0).getTextChannels().get(0);
+    TextChannel githubLog = MainTemplate.jda.getGuildById(1007268691689341030L).getTextChannelById(1031219783154270248L);
 
     @NotNull
     String projectName = "ActivityLevelBot";
