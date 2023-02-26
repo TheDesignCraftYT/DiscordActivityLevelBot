@@ -14,6 +14,7 @@ public interface Versions {
 
         // Versionen zur returnList hinzufügen
         returnList.add("v1.0.0-alpha.1");
+        returnList.add("v1.0.0-alpha.2");
 
         return returnList;
 

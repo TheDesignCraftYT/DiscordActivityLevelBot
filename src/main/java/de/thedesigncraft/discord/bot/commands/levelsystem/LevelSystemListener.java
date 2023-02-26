@@ -2,13 +2,13 @@ package de.thedesigncraft.discord.bot.commands.levelsystem;
 
 import de.thedesigncraft.discord.bot.constants.methods.Levels;
 import de.thedesigncraft.discord.bot.template.methods.ActionRows;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import de.thedesigncraft.discord.bot.template.methods.manage.SQLite;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -21,7 +21,7 @@ import java.util.List;
 public class LevelSystemListener extends ListenerAdapter {
 
     @Override
-    public void onSelectMenuInteraction(@NotNull SelectMenuInteractionEvent event) {
+    public void onStringSelectInteraction(@NotNull StringSelectInteractionEvent event) {
 
         if (!ActionRows.proofSelectMenu(event, "levelSystem.settings", event.getUser()))
             return;
@@ -190,7 +190,7 @@ public class LevelSystemListener extends ListenerAdapter {
         if (event.getMessage().getReferencedMessage() == null)
             return;
 
-        if (!event.getMessage().getReferencedMessage().getAuthor().equals(MainTemplate.jda.getSelfUser()))
+        if (!event.getMessage().getReferencedMessage().getAuthor().equals(Main.jda.getSelfUser()))
             return;
 
         if (event.getMessage().getReferencedMessage().getEmbeds().get(2) == null)

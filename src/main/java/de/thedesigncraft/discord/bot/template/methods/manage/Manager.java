@@ -1,11 +1,11 @@
 package de.thedesigncraft.discord.bot.template.methods.manage;
 
 import de.thedesigncraft.discord.bot.template.methods.listeners.StandardActionRowListener;
-import de.thedesigncraft.discord.bot.template.methods.manage.consolecommands.ConsoleCommand;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.CommandManager;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.IMessageContextMenu;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.IUserContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ConsoleCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.CommandManager;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IMessageContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IUserContextMenu;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import org.reflections.Reflections;

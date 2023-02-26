@@ -1,4 +1,4 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.discordcommands;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.types;
 
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;

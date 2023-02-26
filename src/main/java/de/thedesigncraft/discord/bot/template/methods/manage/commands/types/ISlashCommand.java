@@ -1,15 +1,16 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.discordcommands;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.types;
 
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
-import net.dv8tion.jda.api.events.interaction.command.UserContextInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public interface IUserContextMenu {
+public interface ISlashCommand {
 
     @NotNull
     String version();
@@ -27,12 +28,15 @@ public interface IUserContextMenu {
 
     boolean guildOnly();
 
+    @Nullable
+    List<OptionData> options();
+
     @NotNull
     Emoji commandEmoji();
 
     @Nullable
     List<Permission> requiredPermissions();
 
-    void performUserContextMenu(@NotNull UserContextInteractionEvent event);
+    void performSlashCommand(@NotNull SlashCommandInteractionEvent event);
 
 }

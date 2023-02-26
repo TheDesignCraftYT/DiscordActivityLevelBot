@@ -1,8 +1,7 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.configurationtemplate;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.types;
 
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.manage.SQLite;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
 import de.thedesigncraft.discord.bot.template.values.CommandCategories;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;

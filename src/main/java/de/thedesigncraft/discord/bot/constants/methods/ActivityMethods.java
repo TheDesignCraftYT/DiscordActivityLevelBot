@@ -1,6 +1,6 @@
 package de.thedesigncraft.discord.bot.constants.methods;
 
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import de.thedesigncraft.discord.bot.template.methods.manage.SQLite;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
@@ -86,7 +86,7 @@ public interface ActivityMethods {
 
                 threadChannel.getIterableHistory().cache(false).stream().filter(
                         message -> message.getTimeCreated().isAfter(OffsetDateTime.ofInstant(Instant.now().minus(7, ChronoUnit.DAYS), ZoneId.systemDefault())) &&
-                                !message.getAuthor().equals(MainTemplate.jda.getSelfUser())
+                                !message.getAuthor().equals(Main.jda.getSelfUser())
                 ).forEach(message -> {
 
                     ArrayList<Long> timestamps = data.get(message.getAuthor().getIdLong());
@@ -106,7 +106,7 @@ public interface ActivityMethods {
 
                 newsChannel.getIterableHistory().cache(false).stream().filter(
                         message -> message.getTimeCreated().isAfter(OffsetDateTime.ofInstant(Instant.now().minus(7, ChronoUnit.DAYS), ZoneId.systemDefault())) &&
-                                !message.getAuthor().equals(MainTemplate.jda.getSelfUser())
+                                !message.getAuthor().equals(Main.jda.getSelfUser())
                 ).forEach(message -> {
 
                     ArrayList<Long> timestamps = data.get(message.getAuthor().getIdLong());
@@ -126,7 +126,7 @@ public interface ActivityMethods {
 
                 textChannel.getIterableHistory().cache(false).stream().filter(
                         message -> message.getTimeCreated().isAfter(OffsetDateTime.ofInstant(Instant.now().minus(7, ChronoUnit.DAYS), ZoneId.systemDefault())) &&
-                                !message.getAuthor().equals(MainTemplate.jda.getSelfUser())
+                                !message.getAuthor().equals(Main.jda.getSelfUser())
                 ).forEach(message -> {
 
                     ArrayList<Long> timestamps = data.get(message.getAuthor().getIdLong());
@@ -146,7 +146,7 @@ public interface ActivityMethods {
 
                 voiceChannel.getIterableHistory().cache(false).stream().filter(
                         message -> message.getTimeCreated().isAfter(OffsetDateTime.ofInstant(Instant.now().minus(7, ChronoUnit.DAYS), ZoneId.systemDefault())) &&
-                                !message.getAuthor().equals(MainTemplate.jda.getSelfUser())
+                                !message.getAuthor().equals(Main.jda.getSelfUser())
                 ).forEach(message -> {
 
                     ArrayList<Long> timestamps = data.get(message.getAuthor().getIdLong());

@@ -6,7 +6,7 @@
 
     <groupId>de.thedesigncraft.discord.bot</groupId>
     <artifactId>DiscordActivityLevelBot</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>v1.0.0-alpha.2</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>5.0.0-alpha.21</version>
+            <version>5.0.0-beta.4</version>
         </dependency>
         <dependency>
             <groupId>org.xerial</groupId>
@@ -57,11 +57,12 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>de.thedesigncraft.discord.bot.Main</mainClass>
+                            <mainClass>de.thedesigncraft.discord.bot.DiscordActivityLevelBot</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

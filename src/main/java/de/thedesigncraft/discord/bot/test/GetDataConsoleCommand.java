@@ -2,15 +2,15 @@ package de.thedesigncraft.discord.bot.test;
 
 import de.thedesigncraft.discord.bot.constants.methods.ActivityMethods;
 import de.thedesigncraft.discord.bot.constants.methods.Levels;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
-import de.thedesigncraft.discord.bot.template.methods.manage.consolecommands.ConsoleCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ConsoleCommand;
 import net.dv8tion.jda.api.entities.Member;
 
 public class GetDataConsoleCommand implements ConsoleCommand {
     @Override
     public void code() {
 
-        Member member = MainTemplate.jda.getGuilds().get(0).getOwner();
+        Member member = Main.jda.getGuilds().get(0).getOwner();
 
         assert member != null;
         int messages = ActivityMethods.getMessages(member);

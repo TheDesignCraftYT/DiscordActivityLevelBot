@@ -2,10 +2,10 @@ package de.thedesigncraft.discord.bot.template.methods.commands.help.methods;
 
 import de.thedesigncraft.discord.bot.template.methods.ActionRows;
 import de.thedesigncraft.discord.bot.template.methods.manage.Manager;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ICommandMethods;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.IMessageContextMenu;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.IUserContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.ICommandMethods;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IMessageContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IUserContextMenu;
 import de.thedesigncraft.discord.bot.template.values.CommandCategories;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
@@ -15,6 +15,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
+import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,7 +105,7 @@ public interface HelpActionRows {
 
         CommandCategories.categories().forEach((s, s2) -> selectOptions.add(SelectOption.of(s2, s)));
 
-        return SelectMenu.create("help.goToCategory&id=" + user.getId()).addOptions(selectOptions).setMaxValues(1).setPlaceholder("Welche Kategorie möchtest du sehen?").build();
+        return StringSelectMenu.create("help.goToCategory&id=" + user.getId()).addOptions(selectOptions).setMaxValues(1).setPlaceholder("Welche Kategorie möchtest du sehen?").build();
 
     }
 

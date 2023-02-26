@@ -1,5 +1,8 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.discordcommands;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.discord;
 
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IMessageContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IUserContextMenu;
 import org.jetbrains.annotations.NotNull;
 
 public interface ICommandMethods {

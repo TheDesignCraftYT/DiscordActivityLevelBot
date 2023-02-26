@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
+import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class LevelSystemActionRows {
 
         Levels.levelStrings(member.getGuild()).forEach(s -> options.add(SelectOption.of(s + " (" + (Levels.levelStrings(member.getGuild()).indexOf(s) + 1) + ". Level)", String.valueOf(Levels.levelStrings(member.getGuild()).indexOf(s)))));
 
-        SelectMenu selectMenu = SelectMenu.create("levelSystem.settings&id=" + member.getIdLong())
+        SelectMenu selectMenu = StringSelectMenu.create("levelSystem.settings&id=" + member.getIdLong())
                 .setPlaceholder("Wähle das Level aus, das du bearbeiten möchtest.")
                 .setMaxValues(1)
                 .setMinValues(1)

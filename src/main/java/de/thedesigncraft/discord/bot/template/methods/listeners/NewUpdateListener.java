@@ -3,7 +3,7 @@ package de.thedesigncraft.discord.bot.template.methods.listeners;
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
 import de.thedesigncraft.discord.bot.template.methods.manage.Manager;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ICommandMethods;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.ICommandMethods;
 import de.thedesigncraft.discord.bot.template.values.MainValues;
 import de.thedesigncraft.discord.bot.template.values.UpdateFunctions;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -29,9 +29,10 @@ public class NewUpdateListener extends ListenerAdapter {
 
             String[] titleArgs = event.getMessage().getEmbeds().get(0).getTitle().split(" ");
 
-            if (titleArgs[1].equals("New") &&
-                    titleArgs[2].equals("release") &&
-                    titleArgs[3].equals("published:")) {
+            if (titleArgs[0].split("/")[1].startsWith(MainValues.githubProjectName) &&
+                            titleArgs[1].equals("New") &&
+                            titleArgs[2].equals("release") &&
+                            titleArgs[3].equals("published:")) {
 
                 sendNewUpdate(Versions.currentVersion(), true);
 

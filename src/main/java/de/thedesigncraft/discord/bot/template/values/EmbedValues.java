@@ -1,6 +1,6 @@
 package de.thedesigncraft.discord.bot.template.values;
 
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import org.jetbrains.annotations.NotNull;
 
 public interface EmbedValues {
@@ -8,7 +8,7 @@ public interface EmbedValues {
     int standardColor = 0xffffff;
 
     @NotNull
-    String embedFooterPictureLink = MainTemplate.jda.retrieveUserById(1010513824291504228L).complete().getEffectiveAvatarUrl();
+    String embedFooterPictureLink = Main.jda.retrieveUserById(1010513824291504228L).complete().getEffectiveAvatarUrl();
 
     @NotNull
     String embedFooterText = "Powered by DOS Bots";

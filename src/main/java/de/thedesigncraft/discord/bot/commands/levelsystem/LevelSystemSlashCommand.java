@@ -1,22 +1,16 @@
 package de.thedesigncraft.discord.bot.commands.levelsystem;
 
-import de.thedesigncraft.discord.bot.constants.methods.Levels;
-import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
 import de.thedesigncraft.discord.bot.template.values.CommandCategories;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import net.dv8tion.jda.api.interactions.components.ActionRow;
-import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
-import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

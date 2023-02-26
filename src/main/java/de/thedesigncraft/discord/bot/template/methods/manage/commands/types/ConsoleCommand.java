@@ -1,12 +1,16 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.consolecommands;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.types;
 
 import de.thedesigncraft.discord.bot.template.methods.manage.Manager;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-public interface ConsoleCommands {
+public interface ConsoleCommand {
 
-    static ConcurrentHashMap<String, ConsoleCommand> consoleCommands() {
+    void code();
+
+    @NotNull
+    static ConcurrentHashMap<String, ConsoleCommand> getConsoleCommands() {
 
         ConcurrentHashMap<String, ConsoleCommand> returnMap = new ConcurrentHashMap<>();
 

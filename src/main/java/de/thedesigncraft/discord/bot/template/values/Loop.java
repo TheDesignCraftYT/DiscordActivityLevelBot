@@ -1,8 +1,7 @@
 package de.thedesigncraft.discord.bot.template.values;
 
 import de.thedesigncraft.discord.bot.constants.methods.ActivityMethods;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
-import de.thedesigncraft.discord.bot.template.methods.manage.SQLite;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.*;
 import org.jetbrains.annotations.NotNull;
@@ -19,8 +18,8 @@ public interface Loop {
 
         ActivityMethods.cleanUpTable();
 
-        MainTemplate.jda.getPresence().setStatus(OnlineStatus.ONLINE);
-        MainTemplate.jda.getPresence().setActivity(activity("/help | %reachableUsers erreichbare Nutzer"));
+        Main.jda.getPresence().setStatus(OnlineStatus.ONLINE);
+        Main.jda.getPresence().setActivity(activity("/help | %reachableUsers erreichbare Nutzer"));
 
     }
 
@@ -31,7 +30,7 @@ public interface Loop {
 
         List<User> users = new ArrayList<>();
 
-        MainTemplate.jda.getGuilds().forEach(guild -> guild.getMembers().forEach(member -> users.add(member.getUser())));
+        Main.jda.getGuilds().forEach(guild -> guild.getMembers().forEach(member -> users.add(member.getUser())));
 
         users.forEach(user -> {
 
@@ -45,7 +44,7 @@ public interface Loop {
 
         int sizeOfReachableUsers = userIds.size();
 
-        // MainTemplate.jda.getGuilds().get(0).getMembers().forEach(System.out::println);
+        // Main.jda.getGuilds().get(0).getMembers().forEach(System.out::println);
 
         return Activity.listening(activityText.replace("%reachableUsers", String.valueOf(sizeOfReachableUsers)));
 

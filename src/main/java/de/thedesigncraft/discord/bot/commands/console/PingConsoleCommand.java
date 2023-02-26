@@ -1,9 +1,9 @@
-package de.thedesigncraft.discord.bot.template.values.consolecommands;
+package de.thedesigncraft.discord.bot.commands.console;
 
-import de.thedesigncraft.discord.bot.template.methods.manage.consolecommands.ConsoleCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ConsoleCommand;
 import de.thedesigncraft.discord.bot.template.values.MainValues;
 
-import static de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate.jda;
+import static de.thedesigncraft.discord.bot.template.methods.manage.Main.jda;
 
 public class PingConsoleCommand implements ConsoleCommand {
     @Override

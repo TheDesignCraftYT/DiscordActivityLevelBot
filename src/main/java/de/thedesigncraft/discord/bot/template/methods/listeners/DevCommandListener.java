@@ -1,9 +1,9 @@
 package de.thedesigncraft.discord.bot.template.methods.listeners;
 
-import de.thedesigncraft.discord.bot.Main;
+import de.thedesigncraft.discord.bot.DiscordActivityLevelBot;
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import de.thedesigncraft.discord.bot.template.methods.manage.SQLite;
 import de.thedesigncraft.discord.bot.template.values.MainValues;
 import net.dv8tion.jda.api.JDA;
@@ -59,7 +59,7 @@ public class DevCommandListener extends ListenerAdapter {
 
     private void shutdown(@NotNull MessageReceivedEvent event) {
 
-        JDA jda = MainTemplate.jda;
+        JDA jda = Main.jda;
 
         if (jda != null) {
 
@@ -71,13 +71,13 @@ public class DevCommandListener extends ListenerAdapter {
             event.getMessage().reply("`StatusUpdate: Offline`").queue();
             jda.shutdown();
             SQLite.disconnect();
-            Logger logger = LoggerFactory.getLogger(Main.class);
+            Logger logger = LoggerFactory.getLogger(DiscordActivityLevelBot.class);
             logger.info("StatusUpdate: Offline");
             System.exit(0);
 
         } else {
 
-            Logger logger = LoggerFactory.getLogger(Main.class);
+            Logger logger = LoggerFactory.getLogger(DiscordActivityLevelBot.class);
             logger.error("JDA ist null");
 
         }

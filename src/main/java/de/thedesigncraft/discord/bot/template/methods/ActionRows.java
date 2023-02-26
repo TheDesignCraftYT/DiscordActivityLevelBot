@@ -2,7 +2,7 @@ package de.thedesigncraft.discord.bot.template.methods;
 
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 import org.jetbrains.annotations.NotNull;
@@ -38,9 +38,9 @@ public interface ActionRows {
 
     }
 
-    static boolean proofSelectMenu(SelectMenuInteractionEvent selectMenuInteractionEvent, String proofActionRowId, User proofActionRowUser) {
+    static boolean proofSelectMenu(StringSelectInteractionEvent event, String proofActionRowId, User proofActionRowUser) {
 
-        String[] actionRowIdTiles = selectMenuInteractionEvent.getSelectMenu().getId().replace("&id=", "III").split("III");
+        String[] actionRowIdTiles = event.getSelectMenu().getId().replace("&id=", "III").split("III");
 
         if (actionRowIdTiles[0].split("&")[0].equals(proofActionRowId)) {
 
@@ -50,7 +50,7 @@ public interface ActionRows {
 
             } else {
 
-                selectMenuInteractionEvent.replyEmbeds(EmbedTemplates.issueEmbed("Nur **<@" + actionRowIdTiles[1] + ">** hat Zugriff auf diesen Button.", false)).setEphemeral(true).queue();
+                event.replyEmbeds(EmbedTemplates.issueEmbed("Nur **<@" + actionRowIdTiles[1] + ">** hat Zugriff auf diesen Button.", false)).setEphemeral(true).queue();
 
             }
 

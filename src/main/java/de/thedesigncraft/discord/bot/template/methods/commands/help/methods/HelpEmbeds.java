@@ -1,9 +1,13 @@
 package de.thedesigncraft.discord.bot.template.methods.commands.help.methods;
 
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import de.thedesigncraft.discord.bot.template.methods.manage.Manager;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.*;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.CommandManager;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.ICommandMethods;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IMessageContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IUserContextMenu;
 import de.thedesigncraft.discord.bot.template.values.EmbedValues;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -333,7 +337,7 @@ public interface HelpEmbeds {
 
         ISlashCommand helpServerCommand = CommandManager.slashCommandsMap.get("help");
 
-        return EmbedTemplates.standardEmbed(helpServerCommand.commandEmoji().getName() + " Hilfe", "Willkommen in der Hilfe-Station des " + MainTemplate.jda.getSelfUser().getAsMention() + "-Bots.\n\nDu kannst entweder unten eine Kategorie auswählen, oder diesen Befehl nochmal ausführen und dabei hinter den Befehlsnamen den Namen einer Kategorie oder eines Befehls schreiben.");
+        return EmbedTemplates.standardEmbed(helpServerCommand.commandEmoji().getName() + " Hilfe", "Willkommen in der Hilfe-Station des " + Main.jda.getSelfUser().getAsMention() + "-Bots.\n\nDu kannst entweder unten eine Kategorie auswählen, oder diesen Befehl nochmal ausführen und dabei hinter den Befehlsnamen den Namen einer Kategorie oder eines Befehls schreiben.");
 
     }
 

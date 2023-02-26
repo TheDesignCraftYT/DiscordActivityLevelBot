@@ -5,7 +5,7 @@ import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import org.jetbrains.annotations.NotNull;
 
 public interface LevelSystemEmbeds {
@@ -18,7 +18,7 @@ public interface LevelSystemEmbeds {
     }
 
     @NotNull
-    static MessageEmbed levelSettings(@NotNull SelectMenuInteractionEvent event) {
+    static MessageEmbed levelSettings(@NotNull StringSelectInteractionEvent event) {
 
         EmbedBuilder embedBuilder = new EmbedBuilder(EmbedTemplates.standardEmbed("'" + event.getSelectedOptions().get(0).getLabel() + "' Einstellungen", "In diesem Embed kannst du Einstellungen an dem Level '" + event.getSelectedOptions().get(0).getLabel() + "' vornehmen. In den einzelnen Feldern unten siehst du die aktuellen Einstellungen dieses Levels. Um eine Einstellung zu ändern, musst du nur auf den jeweiligen Button unter diesem Embed klicken. Wenn du fertig bist, klicke einfach auf den Fertig-Button unten."));
 

@@ -1,8 +1,8 @@
 package de.thedesigncraft.discord.bot.test;
 
 import de.thedesigncraft.discord.bot.template.methods.manage.SQLite;
-import de.thedesigncraft.discord.bot.template.methods.manage.consolecommands.ConsoleCommand;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.configurationtemplate.ConfigurationCommandTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ConsoleCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ConfigurationCommandTemplate;
 
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;

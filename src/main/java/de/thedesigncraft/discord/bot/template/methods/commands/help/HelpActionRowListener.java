@@ -4,13 +4,13 @@ import de.thedesigncraft.discord.bot.template.methods.ActionRows;
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.commands.help.methods.HelpActionRows;
 import de.thedesigncraft.discord.bot.template.methods.commands.help.methods.HelpEmbeds;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.CommandManager;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.IMessageContextMenu;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.IUserContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.CommandManager;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IMessageContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IUserContextMenu;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
@@ -64,7 +64,7 @@ public class HelpActionRowListener extends ListenerAdapter {
     }
 
     @Override
-    public void onSelectMenuInteraction(@NotNull SelectMenuInteractionEvent event) {
+    public void onStringSelectInteraction(@NotNull StringSelectInteractionEvent event) {
 
         if (ActionRows.proofSelectMenu(event, "help.goToCategory", event.getUser())) {
 

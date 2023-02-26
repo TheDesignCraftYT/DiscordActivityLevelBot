@@ -2,8 +2,8 @@ package de.thedesigncraft.discord.bot.template.methods.commands;
 
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
 import de.thedesigncraft.discord.bot.template.values.CommandCategories;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
@@ -68,8 +68,8 @@ public class PingSlashCommand implements ISlashCommand {
         EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.copyFrom(EmbedTemplates.standardEmbed(commandEmoji().getName() + " Ping", ""));
 
-        embedBuilder.addField("Discord API Gateway:", "```" + MainTemplate.jda.getGatewayPing() + "ms```", true);
-        embedBuilder.addField("Discord API REST:", "```" + MainTemplate.jda.getRestPing().complete() + "ms```", true);
+        embedBuilder.addField("Discord API Gateway:", "```" + Main.jda.getGatewayPing() + "ms```", true);
+        embedBuilder.addField("Discord API REST:", "```" + Main.jda.getRestPing().complete() + "ms```", true);
 
         event.replyEmbeds(embedBuilder.build()).queue();
 

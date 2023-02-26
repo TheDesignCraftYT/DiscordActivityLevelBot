@@ -17,11 +17,8 @@ public interface EmbedTemplates {
         embedBuilder.setColor(EmbedValues.issueColor);
         embedBuilder.setDescription("> " + issue);
 
-        if (footer) {
-
+        if (footer)
             embedBuilder.setFooter("Diese Nachricht wird in 10 Sekunden automatisch gelöscht.");
-
-        }
 
         return embedBuilder.build();
 

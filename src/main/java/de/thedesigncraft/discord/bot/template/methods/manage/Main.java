@@ -1,11 +1,10 @@
 package de.thedesigncraft.discord.bot.template.methods.manage;
 
-import de.thedesigncraft.discord.bot.Main;
+import de.thedesigncraft.discord.bot.DiscordActivityLevelBot;
 import de.thedesigncraft.discord.bot.constants.values.TOKEN;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
-import de.thedesigncraft.discord.bot.template.methods.manage.consolecommands.ConsoleCommand;
-import de.thedesigncraft.discord.bot.template.methods.manage.consolecommands.ConsoleCommands;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.CommandManager;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ConsoleCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.CommandManager;
 import de.thedesigncraft.discord.bot.template.values.Loop;
 import de.thedesigncraft.discord.bot.template.values.MainValues;
 import de.thedesigncraft.discord.bot.template.values.SQLManager;
@@ -24,7 +23,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MainTemplate {
+public class Main {
 
     public static JDA jda;
 
@@ -32,7 +31,7 @@ public class MainTemplate {
 
     public static CommandManager serverCmdMan;
 
-    public MainTemplate() throws LoginException {
+    public Main() throws LoginException {
 
         SQLite.connect();
         SQLManager.onCreate();
@@ -40,7 +39,7 @@ public class MainTemplate {
         try {
 
             jda = JDABuilder
-                    .createDefault(MainTemplate.getToken()[1])
+                    .createDefault(Main.getToken()[1])
                     .setStatus(OnlineStatus.ONLINE)
                     .setActivity(Activity.listening("/help"))
                     .addEventListeners(Manager.eventListeners())
@@ -55,9 +54,9 @@ public class MainTemplate {
         }
         Logger logger = LoggerFactory.getLogger(Versions.class);
         logger.info("BotVersion: '" + Versions.currentVersion() + "'");
-        logger.info("Starting '" + MainTemplate.getToken()[0] + "' Bot.");
+        logger.info("Starting '" + Main.getToken()[0] + "' Bot.");
 
-        Logger logger1 = LoggerFactory.getLogger(Main.class);
+        Logger logger1 = LoggerFactory.getLogger(DiscordActivityLevelBot.class);
         logger1.info("StatusUpdate: Online");
 
         Loop.onLoop();
@@ -107,7 +106,7 @@ public class MainTemplate {
 
                     ConsoleCommand consoleCommand;
 
-                    if ((consoleCommand = ConsoleCommands.consoleCommands().get(line)) != null) {
+                    if ((consoleCommand = ConsoleCommand.getConsoleCommands().get(line)) != null) {
 
                         System.out.println("--------------------");
 

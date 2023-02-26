@@ -2,8 +2,8 @@ package de.thedesigncraft.discord.bot.template.methods.commands;
 
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
 import de.thedesigncraft.discord.bot.template.values.CommandCategories;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
@@ -67,7 +67,7 @@ public class VersionSlashCommand implements ISlashCommand {
 
         EmbedBuilder embedBuilder = new EmbedBuilder(EmbedTemplates.standardEmbed(commandEmoji().getName() + " Bot Version", "Unten siehst du die aktuelle Version des Bots."));
         embedBuilder.addField("Version", Versions.currentVersion(), true);
-        embedBuilder.addField("VersionType", MainTemplate.getToken()[0], true);
+        embedBuilder.addField("VersionType", Main.getToken()[0], true);
 
         event.replyEmbeds(embedBuilder.build()).queue();
 

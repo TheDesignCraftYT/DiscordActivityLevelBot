@@ -1,9 +1,12 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.discordcommands;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.discord;
 
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.listeners.StandardActionRowListener;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import de.thedesigncraft.discord.bot.template.methods.manage.Manager;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IMessageContextMenu;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.IUserContextMenu;
 import de.thedesigncraft.discord.bot.template.values.MainValues;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
@@ -42,7 +45,7 @@ public class CommandManager extends ListenerAdapter {
         Manager.userContextMenus().forEach(userContextMenu -> userContextMenuMap.put(ICommandMethods.getUserContextMenuName(userContextMenu), userContextMenu));
         Manager.messageContextMenus().forEach(messageContextMenu -> messageContextMenuMap.put(ICommandMethods.getMessageContextMenuName(messageContextMenu), messageContextMenu));
 
-        MainTemplate.jda.retrieveCommands().queue(commands -> {
+        Main.jda.retrieveCommands().queue(commands -> {
 
             List<String> oldCommandNames = new ArrayList<>();
 
@@ -78,9 +81,9 @@ public class CommandManager extends ListenerAdapter {
         });
 
         List<String> oldCommandNames = new ArrayList<>();
-        MainTemplate.jda.retrieveCommands().queue(commands -> commands.forEach(command -> oldCommandNames.add(command.getName())));
+        Main.jda.retrieveCommands().queue(commands -> commands.forEach(command -> oldCommandNames.add(command.getName())));
 
-        CommandListUpdateAction updateAction = MainTemplate.jda.updateCommands();
+        CommandListUpdateAction updateAction = Main.jda.updateCommands();
         ConcurrentHashMap<Long, CommandListUpdateAction> guildUpdateActions = new ConcurrentHashMap<>();
 
         Manager.slashCommands().forEach(slashCommand -> {
@@ -91,7 +94,7 @@ public class CommandManager extends ListenerAdapter {
 
             } else {
 
-                MainTemplate.jda.getGuilds().forEach(guild -> {
+                Main.jda.getGuilds().forEach(guild -> {
 
                     if (!guildUpdateActions.containsKey(guild.getIdLong())) {
 
@@ -119,7 +122,7 @@ public class CommandManager extends ListenerAdapter {
 
             } else {
 
-                MainTemplate.jda.getGuilds().forEach(guild -> {
+                Main.jda.getGuilds().forEach(guild -> {
 
                     if (!guildUpdateActions.containsKey(guild.getIdLong())) {
 
@@ -147,7 +150,7 @@ public class CommandManager extends ListenerAdapter {
 
             } else {
 
-                MainTemplate.jda.getGuilds().forEach(guild -> {
+                Main.jda.getGuilds().forEach(guild -> {
 
                     if (!guildUpdateActions.containsKey(guild.getIdLong())) {
 
@@ -171,7 +174,7 @@ public class CommandManager extends ListenerAdapter {
         updateAction.queue();
 
         List<String> newCommandNames = new ArrayList<>();
-        MainTemplate.jda.retrieveCommands().queue(commands -> commands.forEach(command -> newCommandNames.add(command.getName())));
+        Main.jda.retrieveCommands().queue(commands -> commands.forEach(command -> newCommandNames.add(command.getName())));
 
         Logger logger = LoggerFactory.getLogger(CommandManager.class);
         oldCommandNames.forEach(s -> {

@@ -4,7 +4,7 @@ import de.thedesigncraft.discord.bot.constants.methods.ActivityMethods;
 import de.thedesigncraft.discord.bot.constants.methods.Levels;
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
 import de.thedesigncraft.discord.bot.template.methods.Versions;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.ISlashCommand;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.ISlashCommand;
 import de.thedesigncraft.discord.bot.template.values.CommandCategories;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
@@ -93,7 +93,7 @@ public class LevelSlashCommand implements ISlashCommand {
         try {
 
             embedBuilder.addField("<:arrow:1030434355258081332> | __Vorheriges Level__",
-                    "<:line2:1030439744179544084> | Level: " + (level - 1) + "\n" +
+                    "<:line2:1030439744179544084> | Level: " + (level) + "\n" +
                             "<:arrow:1030434355258081332> | Mindestanzahl an Nachrichten: " + Levels.levelMins(event.getGuild()).get(level - 1) + "\n" +
                             "<:line2:1030439744179544084> | Name: " + Levels.levelStrings(event.getGuild()).get(level - 1),
                     false);
@@ -105,7 +105,7 @@ public class LevelSlashCommand implements ISlashCommand {
         try {
 
             embedBuilder.addField("<:arrow:1030434355258081332> |-| __Aktuelles Level__",
-                    "<:line2:1030439744179544084> |-| Level: " + (level) + "\n" +
+                    "<:line2:1030439744179544084> |-| Level: " + (level + 1) + "\n" +
                             "<:arrow:1030434355258081332> |-| Mindestanzahl an Nachrichten: " + Levels.levelMins(event.getGuild()).get(level) + "\n" +
                             "<:line2:1030439744179544084> |-| Name: " + Levels.levelStrings(event.getGuild()).get(level),
                     false);
@@ -117,7 +117,7 @@ public class LevelSlashCommand implements ISlashCommand {
         try {
 
             embedBuilder.addField("<:arrow:1030434355258081332> | __Nächstes Level__",
-                    "<:line2:1030439744179544084> | Level: " + (level + 1) + "\n" +
+                    "<:line2:1030439744179544084> | Level: " + (level + 2) + "\n" +
                             "<:arrow:1030434355258081332> | Mindestanzahl an Nachrichten: " + Levels.levelMins(event.getGuild()).get(level + 1) + "\n" +
                             "<:line2:1030439744179544084> | Name: " + Levels.levelStrings(event.getGuild()).get(level + 1),
                     false);

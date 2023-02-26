@@ -2,12 +2,12 @@ package de.thedesigncraft.discord.bot.template.methods.listeners;
 
 import de.thedesigncraft.discord.bot.template.methods.ActionRows;
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
-import de.thedesigncraft.discord.bot.template.methods.manage.discordcommands.OneSelectionMenuCommandTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.types.OneSelectionMenuCommandTemplate;
 import de.thedesigncraft.discord.bot.template.values.MainValues;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -19,9 +19,9 @@ import java.util.concurrent.TimeUnit;
 public class StandardActionRowListener extends ListenerAdapter {
 
     @Override
-    public void onSelectMenuInteraction(@NotNull SelectMenuInteractionEvent event) {
+    public void onStringSelectInteraction(@NotNull StringSelectInteractionEvent event) {
 
-        OneSelectionMenuCommandTemplate.onSelectMenuInteraction(event);
+        OneSelectionMenuCommandTemplate.onStringSelectInteraction(event);
 
         try {
             TimeUnit.SECONDS.sleep(2);

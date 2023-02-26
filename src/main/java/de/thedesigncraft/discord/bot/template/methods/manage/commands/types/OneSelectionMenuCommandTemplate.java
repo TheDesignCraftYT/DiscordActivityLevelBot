@@ -1,21 +1,22 @@
-package de.thedesigncraft.discord.bot.template.methods.manage.discordcommands;
+package de.thedesigncraft.discord.bot.template.methods.manage.commands.types;
 
 import de.thedesigncraft.discord.bot.template.methods.ActionRows;
 import de.thedesigncraft.discord.bot.template.methods.EmbedTemplates;
+import de.thedesigncraft.discord.bot.template.methods.manage.commands.discord.CommandManager;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
-import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
+import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -120,7 +121,7 @@ public interface OneSelectionMenuCommandTemplate extends ISlashCommand {
 
                 choices.forEach((s, strings) -> options.add(SelectOption.of(s, s)));
 
-                returnList.add(ActionRow.of(SelectMenu.create(settings[0] + "Menu&id=" + user.getIdLong()).addOptions(options).build()));
+                returnList.add(ActionRow.of(StringSelectMenu.create(settings[0] + "Menu&id=" + user.getIdLong()).addOptions(options).build()));
 
                 returnList.add(ActionRow.of(ActionRows.cancelButton(user)));
 
@@ -172,7 +173,7 @@ public interface OneSelectionMenuCommandTemplate extends ISlashCommand {
 
     }
 
-    static void onSelectMenuInteraction(@NotNull SelectMenuInteractionEvent event) {
+    static void onStringSelectInteraction(@NotNull StringSelectInteractionEvent event) {
 
         ISlashCommand serverCommand = CommandManager.slashCommandsMap.get(event.getSelectMenu().getId().replace("Menu", "").toLowerCase().split("&id=")[0]);
 

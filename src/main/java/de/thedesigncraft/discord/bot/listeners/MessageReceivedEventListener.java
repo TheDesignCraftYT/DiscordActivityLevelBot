@@ -2,7 +2,7 @@ package de.thedesigncraft.discord.bot.listeners;
 
 import de.thedesigncraft.discord.bot.constants.methods.ActivityMethods;
 import de.thedesigncraft.discord.bot.constants.methods.Levels;
-import de.thedesigncraft.discord.bot.template.methods.manage.MainTemplate;
+import de.thedesigncraft.discord.bot.template.methods.manage.Main;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -13,10 +13,7 @@ public class MessageReceivedEventListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
 
-        if (!event.isFromGuild())
-            return;
-
-        if (event.getAuthor().equals(MainTemplate.jda.getSelfUser()))
+        if (!event.isFromGuild() || event.getAuthor().equals(Main.jda.getSelfUser()) || event.getAuthor().isBot())
             return;
 
         ActivityMethods.addNewMessage(event.getMessage());
